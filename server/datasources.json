@@ -1,0 +1,27 @@
+{
+  "restSource": {
+    "name": "restSource",
+    "connector": "rest",
+    "debug": "true",
+    "operations": [{
+            "template": {
+                "method": "POST",
+                "url": "http://ec2-54-207-7-166.sa-east-1.compute.amazonaws.com:8080/bio-facial-service/rest/verficarIdentidadBioFacial",
+                "headers": {
+                    "accepts": "application/json",
+                    "content-type": "application/json"
+                },
+                "body": {
+                 	"nuRuc": "{nuRuc='20100047218'}",
+					"coUsuario": "{coUsuario='41909405'}",
+					"idIntegratedApp": "{idApp='BCP'}",
+					"nuDni": "{nuDni}",
+					"fotoCapturada":"{fotoCapturada}"
+                }
+            },
+            "functions": {
+                "foto": ["nuDni", "fotoCapturada"]
+            }
+        }]
+  }
+}
